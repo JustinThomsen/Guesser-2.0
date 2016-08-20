@@ -1,24 +1,21 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 
 namespace Thomsen.GuessingGame
 {
+public interface IState
+    {
+        String PrintOptions();
+        IState HandleInput(KeyCode code);
+    }
 
-public class GuessingGame : MonoBehaviour {
+    public class GuessingGame : MonoBehaviour {
 	
 	Guesser guessy = new Guesser ();
 	public Winning winning = new Winning ();
-//	List<int> guesses = new List<int>();
-//	int max;
-//	int initialmax;
-//	int min;
-//	int initialmin;
-//	double guess;
-//	int count;
-//	int diff;
-//	double initialguess;
 	KeyCode code;
 		
 	void Start () {
@@ -42,30 +39,17 @@ public class GuessingGame : MonoBehaviour {
 	
 
 	void StartGame () {
-		
-		//max = 1000;
-		//initialmax = max;
-		//min = 1;
-		//initialmin = min;
-		//guess = System.Math.Round (((double)max + (double)min) / 2);
-		//diff = System.Math.Abs (max-min);
-		//count = 1;
-		//initialguess = guess;
+
 			guessy.currentMax = 1000;
 			guessy.currentMin = 1;
-//			diff = guessy.currentMax - guessy.currentMin;
-//			guessy.currentGuess = (int)System.Math.Round (((double)guessy.currentMax + (double)guessy.currentMin) / 2);
 			print ("================================================\n");
 			print ("Welcome to Number Wizard\n");
 			print ("Pick a number in your head and punch a baby seal.\n");
-		
 			print ("Max value is " + guessy.currentMax +"\n");
 			print ("Min value is " + guessy.currentMin + "\n");
 			
 			Instructions();
 
-		//max = max + 1;
-		//min = min - 1;
 	}
 
 		
