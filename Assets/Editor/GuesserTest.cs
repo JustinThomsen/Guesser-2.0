@@ -36,7 +36,7 @@ namespace Thomsen.GuessingGame
 
 		    guesser.Guess (1, 1000, KeyCode.UpArrow);
 
-			Assert.AreEqual (500, guesser.currentMin);
+			Assert.AreEqual (500, guesser.CurrentMin);
 			
 		}
 
@@ -56,7 +56,7 @@ namespace Thomsen.GuessingGame
 
 			guesser.Guess (1, 1000, KeyCode.DownArrow);
 
-			Assert.AreEqual (500, guesser.currentMax);
+			Assert.AreEqual (500, guesser.CurrentMax);
 
 
 		}

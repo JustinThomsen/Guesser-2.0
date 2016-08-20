@@ -6,10 +6,10 @@ using System.Collections.Generic;
 
 namespace Thomsen.GuessingGame
 {
-public interface IState
+public interface IGameState
     {
         String PrintOptions();
-        IState HandleInput(KeyCode code);
+        IGameState HandleInput(KeyCode code);
     }
 
     public class GuessingGame : MonoBehaviour {
@@ -26,11 +26,11 @@ public interface IState
 	void Update () {
 
 		if (Input.GetKeyDown("up")) {
-				guessy.Guess(guessy.currentMin, guessy.currentMax, KeyCode.UpArrow);
-				print (guessy.currentGuess);
+				guessy.Guess(guessy.CurrentMin, guessy.CurrentMax, KeyCode.UpArrow);
+				print (guessy.CurrentGuess);
 		}
 		else if (Input.GetKeyDown("down")) {
-				guessy.Guess(guessy.currentMin, guessy.currentMax, KeyCode.DownArrow);
+				guessy.Guess(guessy.CurrentMin, guessy.CurrentMax, KeyCode.DownArrow);
 		}
 		else if (Input.GetKeyDown("return")||Input.GetKeyDown("enter")) {
 				winning.RestartGame (guessy,1,1000);
@@ -40,13 +40,13 @@ public interface IState
 
 	void StartGame () {
 
-			guessy.currentMax = 1000;
-			guessy.currentMin = 1;
+			guessy.CurrentMax = 1000;
+			guessy.CurrentMin = 1;
 			print ("================================================\n");
 			print ("Welcome to Number Wizard\n");
 			print ("Pick a number in your head and punch a baby seal.\n");
-			print ("Max value is " + guessy.currentMax +"\n");
-			print ("Min value is " + guessy.currentMin + "\n");
+			print ("Max value is " + guessy.CurrentMax +"\n");
+			print ("Min value is " + guessy.CurrentMin + "\n");
 			
 			Instructions();
 
@@ -59,7 +59,7 @@ public interface IState
 //		Winning();
 //	}
 	void Instructions () {
-		print("Is the # higher or lower than " + guessy.currentGuess + "\n");
+		print("Is the # higher or lower than " + guessy.CurrentGuess + "\n");
 		print ("[UP] for higher; [DOWN] for lower; [RETURN] for equal\n");
 	}
 //	void NextGuess () {
