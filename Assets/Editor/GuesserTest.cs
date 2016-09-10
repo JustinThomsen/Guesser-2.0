@@ -1,11 +1,8 @@
 using NUnit.Framework;
-using UnityEngine;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Thomsen.GuessingGame;
+using UnityEngine;
 
-namespace Thomsen.GuessingGame
+namespace Thomsen.GuessingGame.Assets.Editor
 
 {
 	[TestFixture()]

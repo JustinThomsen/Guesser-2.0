@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Thomsen.GuessingGame;
 
 namespace UnityTest
 {
