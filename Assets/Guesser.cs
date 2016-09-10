@@ -6,41 +6,32 @@ using System.Collections.Generic;
 
 namespace Thomsen.GuessingGame
 {
-	public class Guesser : IGameState
+	public class Guesser
 	{
-		public int CurrentMin;
-		public int CurrentMax;
-		public int CurrentGuess;
+		public int currentMin;
+		public int currentMax;
+		public int currentGuess;
 		public int guess;
 		public double Guess (double min, double max, KeyCode code)
 		{
-			CurrentMin = (int)min;
-			CurrentMax = (int)max;
-			CurrentGuess = (int)(min + max)/2;
+			currentMin = (int)min;
+			currentMax = (int)max;
+			currentGuess = (int)(min + max)/2;
 			switch (code)
 			{
 			    case KeyCode.UpArrow:
-			        CurrentMin = CurrentGuess;
-			        guess = (CurrentMax + CurrentGuess) / 2;
+			        currentMin = currentGuess;
+			        guess = (currentMax + currentGuess) / 2;
 			        return guess;
 			    case KeyCode.DownArrow:
-			        CurrentMax = CurrentGuess;
-			        guess = (CurrentMin + CurrentGuess) / 2;
+			        currentMax = currentGuess;
+			        guess = (currentMin + currentGuess) / 2;
 			        return guess;
 			    default:
-			        return CurrentGuess;
+			        return currentGuess;
 			}
 		}
 
-	    public string PrintOptions()
-	    {
-	        throw new NotImplementedException();
-	    }
-
-	    public IGameState HandleInput(KeyCode code)
-	    {
-	        throw new NotImplementedException();
-	    }
 	}
 
 }

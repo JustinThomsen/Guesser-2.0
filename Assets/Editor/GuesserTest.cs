@@ -33,7 +33,7 @@ namespace Thomsen.GuessingGame.Assets.Editor
 
 		    guesser.Guess (1, 1000, KeyCode.UpArrow);
 
-			Assert.AreEqual (500, guesser.CurrentMin);
+			Assert.AreEqual (500, guesser.currentMin);
 			
 		}
 
@@ -53,7 +53,7 @@ namespace Thomsen.GuessingGame.Assets.Editor
 
 			guesser.Guess (1, 1000, KeyCode.DownArrow);
 
-			Assert.AreEqual (500, guesser.CurrentMax);
+			Assert.AreEqual (500, guesser.currentMax);
 
 
 		}

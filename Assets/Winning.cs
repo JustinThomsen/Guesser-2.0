@@ -9,8 +9,8 @@ namespace Thomsen.GuessingGame
 	{
 		public void RestartGame(Guesser guess, int min, int max)
 		{
-			guess.CurrentMax = max;
-			guess.CurrentMin = min;
+			guess.currentMax = max;
+			guess.currentMin = min;
 		}
 
 	}
