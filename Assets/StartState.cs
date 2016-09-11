@@ -1,7 +1,4 @@
 using UnityEngine;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace Thomsen.GuessingGame
 {
@@ -20,6 +17,7 @@ namespace Thomsen.GuessingGame
 	    {
 	        guesser.currentMax = 1000;
 	        guesser.currentMin = 1;
+	        guesser.Guess(guesser.currentMin, guesser.currentMax, code);
 	        return new WaitingForInput();
 	    }
 	}

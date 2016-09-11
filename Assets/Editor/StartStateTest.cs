@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using Thomsen.GuessingGame;
 using UnityEngine;
 
 namespace Thomsen.GuessingGame.Assets.Editor
@@ -29,10 +28,23 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	    }
 
 	    [Test()]
+	    public void ShouldSetCurrentGuessTo500AfterStart()
+	    {
+	        StartState startState = new StartState();
+	        Guesser guesser = new Guesser();
+	        guesser.currentGuess = 25;
+
+	        startState.handleInput(guesser, KeyCode.A);
+
+	        Assert.AreEqual(500, guesser.currentGuess);
+	    }
+
+	    [Test()]
 	    public void ShouldSetCurrentMinTo1AfterStart()
 	    {
 	        StartState startState = new StartState();
 	        Guesser guesser = new Guesser();
+	        guesser.currentMin = 10;
 
 	        startState.handleInput(guesser, KeyCode.A);
 

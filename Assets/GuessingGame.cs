@@ -6,7 +6,6 @@ using System.Net.Mime;
 using UnityEditorInternal;
 using UnityEngine.UI;
 
-
 namespace Thomsen.GuessingGame
 {
     public interface IGameState
