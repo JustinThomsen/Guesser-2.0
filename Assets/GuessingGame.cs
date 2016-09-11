@@ -1,9 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.Mime;
-using UnityEditorInternal;
 using UnityEngine.UI;
 
 namespace Thomsen.GuessingGame
@@ -36,7 +32,7 @@ namespace Thomsen.GuessingGame
         {
             currentState = currentState.handleInput(guesser, code);
             print(currentState.printOptions(guesser));
-
+            print(guesser.currentGuess);
             code = emptyCode;
 
             if (Input.GetKeyDown("up"))

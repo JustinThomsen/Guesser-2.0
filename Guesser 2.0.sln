@@ -5,6 +5,8 @@ Project("{12EDCD0C-00AE-7B76-CA32-D246F8E4B712}") = "Guesser 2.0", "Assembly-CSh
 EndProject
 Project("{12EDCD0C-00AE-7B76-CA32-D246F8E4B712}") = "Guesser 2.0", "Assembly-CSharp-Editor.csproj", "{C12C49F4-52F0-8C80-4F7C-43BDE28D4723}"
 EndProject
+Project("{12EDCD0C-00AE-7B76-CA32-D246F8E4B712}") = "Guesser 2.0", "Assembly-UnityScript.unityproj", "{CDE19770-2747-88ED-9521-95817EC6145F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{C12C49F4-52F0-8C80-4F7C-43BDE28D4723}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C12C49F4-52F0-8C80-4F7C-43BDE28D4723}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C12C49F4-52F0-8C80-4F7C-43BDE28D4723}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDE19770-2747-88ED-9521-95817EC6145F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDE19770-2747-88ED-9521-95817EC6145F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDE19770-2747-88ED-9521-95817EC6145F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDE19770-2747-88ED-9521-95817EC6145F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

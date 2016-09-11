@@ -1,7 +1,4 @@
 using UnityEngine;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace Thomsen.GuessingGame
 {
@@ -10,7 +7,7 @@ namespace Thomsen.GuessingGame
 
 	    public string printOptions(Guesser guesser)
 	    {
-	        return null;
+	        return "Guessing Higher";
 	    }
 
 	    public IGameState handleInput(Guesser guesser, KeyCode code)
