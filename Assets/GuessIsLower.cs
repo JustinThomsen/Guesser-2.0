@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Thomsen.GuessingGame
 {
-	public class GuessIsHigher : IGameState
+	public class GuessIsLower : IGameState
 	{
 
 	    public string printOptions(Guesser guesser)
@@ -15,7 +15,7 @@ namespace Thomsen.GuessingGame
 
 	    public IGameState handleInput(Guesser guesser, KeyCode code)
 	    {
-	        guesser.Guess(guesser.currentGuess, guesser.currentMax, KeyCode.UpArrow);
+	        guesser.Guess(guesser.currentMin, guesser.currentGuess, KeyCode.DownArrow);
 	        return new WaitingForInput();
 	    }
 	}

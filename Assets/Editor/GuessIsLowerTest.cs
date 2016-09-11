@@ -6,20 +6,20 @@ namespace Thomsen.GuessingGame.Assets.Editor
 
 {
 	[TestFixture()]
-	public class GuessIsHigherTest
+	public class GuessIsLowerTest
 	{
 	    [Test()]
-	    public void ShouldPromptWithHigherGuessWhenGuessIsHigher()
+	    public void ShouldPromptWithLowerGuessWhenGuessIsLower()
 	    {
-	        GuessIsHigher guess = new GuessIsHigher();
+	        GuessIsLower guess = new GuessIsLower();
 	        Guesser guesser = new Guesser();
 	        guesser.currentMin = 1;
 	        guesser.currentGuess = 500;
 	        guesser.currentMax = 1000;
 
-	        guess.handleInput(guesser, KeyCode.UpArrow);
+	        guess.handleInput(guesser, KeyCode.DownArrow);
 
-	        Assert.AreEqual(750, guesser.currentGuess);
+	        Assert.AreEqual(250, guesser.currentGuess);
 
 	    }
 

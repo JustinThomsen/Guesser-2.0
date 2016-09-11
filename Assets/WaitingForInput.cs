@@ -13,10 +13,21 @@ namespace Thomsen.GuessingGame
 	        return "Is the # higher or lower than " + guesser.currentGuess + "\n" +
 	        "[UP] for higher; [DOWN] for lower; [RETURN] for equal\n";
 	    }
-
+        //does it really need the guesser here? Again, some states do, but not this one. or maybe no states do?  maybe
+	    //you are a dick for saying I need states.
 	    public IGameState handleInput(Guesser guesser, KeyCode code)
 	    {
-	        throw new NotImplementedException();
+	        switch (code)
+	        {
+	            case KeyCode.UpArrow:
+	                return new GuessIsHigher();
+	            case KeyCode.DownArrow:
+	                return new GuessIsLower();
+	            case KeyCode.Return:
+	                return new Winning();
+	            default:
+	                return new WaitingForInput();
+	        }
 	    }
 	}
 

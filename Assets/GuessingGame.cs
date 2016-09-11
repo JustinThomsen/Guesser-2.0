@@ -11,6 +11,8 @@ namespace Thomsen.GuessingGame
 {
     public interface IGameState
     {
+        //not all States need to print stuff - but if I dont have this - I can't use blah.printOptions
+        //because not all states would have it
         String printOptions(Guesser guesser);
         IGameState handleInput(Guesser guesser, KeyCode code);
     }
@@ -24,15 +26,18 @@ namespace Thomsen.GuessingGame
         public KeyCode code;
         private KeyCode emptyCode;
 
-        void Start () {
-
+        void Start ()
+        {
             StartGame();
+            currentState = new StartState();
+            print(currentState.printOptions(guesser));
         }
 
-        void Update () {
-
-            print(currentState.printOptions(guesser));
+        void Update ()
+        {
             currentState = currentState.handleInput(guesser, code);
+            print(currentState.printOptions(guesser));
+
             code = emptyCode;
 
             if (Input.GetKeyDown("up"))
@@ -53,20 +58,11 @@ namespace Thomsen.GuessingGame
         }
 
 
-        void StartGame ()
+        public void StartGame ()
         {
-
-                currentState = new WaitingForInput();
-                guesser.currentMax = 1000;
-                guesser.currentMin = 1;
-                print ("================================================\n");
-                print ("Welcome to Number Wizard\n");
-                print ("Pick a number in your head and punch a baby seal.\n");
-                print ("Max value is " + guesser.currentMax +"\n");
-                print ("Min value is " + guesser.currentMin + "\n");
-
-                Instructions();
-
+            guesser.currentMax = 1000;
+            guesser.currentMin = 1;
+            guesser.Guess(guesser.currentMin, guesser.currentMax, code);
         }
 
 
@@ -75,10 +71,7 @@ namespace Thomsen.GuessingGame
     //		//print (guess+ "g"+max+"max"+min+"min");
     //		Winning();
     //	}
-        void Instructions () {
-            print("Is the # higher or lower than " + guesser.currentGuess + "\n");
-            print ("[UP] for higher; [DOWN] for lower; [RETURN] for equal\n");
-        }
+
     //	void NextGuess () {
     //
     //		guesser.count ++;

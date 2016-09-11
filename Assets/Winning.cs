@@ -5,14 +5,18 @@ using System.Collections.Generic;
 
 namespace Thomsen.GuessingGame
 {
-	public class Winning
+	public class Winning : IGameState
 	{
-		public void RestartGame(Guesser guess, int min, int max)
-		{
-			guess.currentMax = max;
-			guess.currentMin = min;
-		}
 
+	    public string printOptions(Guesser guesser)
+	    {
+	        return "Your number is " + guesser.currentGuess + ".";
+	    }
+
+	    public IGameState handleInput(Guesser guesser, KeyCode code)
+	    {
+	        return new StartState();
+	    }
 	}
 
 }
