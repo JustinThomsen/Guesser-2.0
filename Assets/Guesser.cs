@@ -1,6 +1,6 @@
 
 using UnityEngine;
-
+//Current defect - can only guess higher every time, or lower everytime.  Any combo leads to a broken game state.
 namespace Thomsen.GuessingGame
 {
 	public class Guesser
