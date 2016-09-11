@@ -7,11 +7,10 @@ namespace Thomsen.GuessingGame
 {
 	public class StartState : IGameState
 	{
-
 	    public string printOptions(Guesser guesser)
 	    {
 	        return ("================================================\n" +
-	        "Welcome to Number Wizard\n" +
+	        "Welcome to Guesser 2.0\n" +
 	        "Pick a number in your head and punch a baby seal.\n" +
 	        "Max value is " + guesser.currentMax + "\n" +
 	        "Min value is " + guesser.currentMin + "\n");

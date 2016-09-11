@@ -15,7 +15,6 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	        Guesser guesser = new Guesser();
 
 	        Assert.IsInstanceOf<WaitingForInput>(guess.handleInput(guesser, KeyCode.UpArrow));
-
 	    }
 
 	    [Test()]
@@ -25,7 +24,6 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	        Guesser guesser = new Guesser();
 
 	        Assert.IsInstanceOf<GuessIsHigher>(guess.handleInput(guesser, KeyCode.UpArrow));
-
 	    }
 
 	    [Test()]
@@ -35,7 +33,6 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	        Guesser guesser = new Guesser();
 
 	        Assert.IsInstanceOf<Winning>(guess.handleInput(guesser, KeyCode.Return));
-
 	    }
 
 	}

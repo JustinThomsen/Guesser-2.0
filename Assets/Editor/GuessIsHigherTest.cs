@@ -20,7 +20,6 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	        guess.handleInput(guesser, KeyCode.UpArrow);
 
 	        Assert.AreEqual(750, guesser.currentGuess);
-
 	    }
 
 	}
