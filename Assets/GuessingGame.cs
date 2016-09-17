@@ -19,7 +19,7 @@ namespace Thomsen.GuessingGame
         private IGameState currentState;
 	    public Winning winning = new Winning ();
         public KeyCode code;
-        private KeyCode emptyCode;
+//        private KeyCode emptyCode;
 
         void Start ()
         {
@@ -32,24 +32,26 @@ namespace Thomsen.GuessingGame
         {
             currentState = currentState.handleInput(guesser, code);
             print(currentState.printOptions(guesser));
-            print(guesser.currentGuess);
-            code = emptyCode;
+            print(code);
+            //print(guesser.currentGuess);
 
             if (Input.GetKeyDown("up"))
             {
                 code = KeyCode.UpArrow;
-                //guesser.Guess(guesser.currentMin, guesser.currentMax, KeyCode.UpArrow);
-                    //print (guesser.currentGuess);
+//                guesser.Guess(guesser.currentGuess, guesser.currentMax, KeyCode.UpArrow);
+                print(guesser.currentGuess);
+                //print (guesser.currentGuess);
             }
             else if (Input.GetKeyDown("down"))
             {
                 code = KeyCode.DownArrow;
-                //guesser.Guess(guesser.currentMin, guesser.currentMax, KeyCode.DownArrow);
+//                guesser.Guess(guesser.currentMin, guesser.currentGuess, KeyCode.DownArrow);
             }
-            else if (Input.GetKeyDown("return")||Input.GetKeyDown("enter"))
+            else if (Input.GetKeyDown("return") || Input.GetKeyDown("enter"))
             {
                 code = KeyCode.Return;
             }
+            else code = KeyCode.None;
         }
 
 
@@ -57,7 +59,7 @@ namespace Thomsen.GuessingGame
         {
             guesser.currentMax = 1000;
             guesser.currentMin = 1;
-            guesser.Guess(guesser.currentMin, guesser.currentMax, code);
+            guesser.Guess(guesser.currentMin, guesser.currentMax);
         }
 
 

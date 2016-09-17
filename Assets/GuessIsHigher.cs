@@ -12,7 +12,7 @@ namespace Thomsen.GuessingGame
 
 	    public IGameState handleInput(Guesser guesser, KeyCode code)
 	    {
-	        guesser.Guess(guesser.currentGuess, guesser.currentMax, KeyCode.UpArrow);
+	        guesser.Guess(guesser.currentGuess, guesser.currentMax);
 	        return new WaitingForInput();
 	    }
 	}

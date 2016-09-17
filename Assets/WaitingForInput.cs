@@ -1,3 +1,4 @@
+using Mono.Cecil.Cil;
 using UnityEngine;
 
 namespace Thomsen.GuessingGame
@@ -10,8 +11,7 @@ namespace Thomsen.GuessingGame
 	        return "Is the # higher or lower than " + guesser.currentGuess + "\n" +
 	        "[UP] for higher; [DOWN] for lower; [RETURN] for equal\n";
 	    }
-        //does it really need the guesser here? Again, some states do, but not this one. or maybe no states do?  maybe
-	    //you are a dick for saying I need states.
+        //does it really need the guesser here? Again, some states do, but not this one. or maybe no states do?
 	    public IGameState handleInput(Guesser guesser, KeyCode code)
 	    {
 	        switch (code)

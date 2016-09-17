@@ -7,26 +7,27 @@ namespace Thomsen.GuessingGame
 	{
 		public int currentMin;
 		public int currentMax;
-		public int currentGuess;
-		public int guess;
-		public double Guess (double min, double max, KeyCode code)
+	    public int currentGuess;
+//		public int guess;
+		public int Guess (int min, int max)
 		{
-			currentMin = (int)min;
-			currentMax = (int)max;
-			currentGuess = (int)(min + max)/2;
-			switch (code)
+			currentMin = min;
+			currentMax = max;
+		    currentGuess = (currentMin + currentMax) / 2;
+		    return currentGuess;
+		    /*switch (code)
 			{
 			    case KeyCode.UpArrow:
 			        currentMin = currentGuess;
-			        guess = (currentMax + currentGuess) / 2;
-			        return guess;
+			        currentGuess = (currentMax + currentGuess) / 2;
+			        return currentGuess;
 			    case KeyCode.DownArrow:
 			        currentMax = currentGuess;
-			        guess = (currentMin + currentGuess) / 2;
-			        return guess;
+			        currentGuess = (currentMin + currentGuess) / 2;
+			        return currentGuess;
 			    default:
 			        return currentGuess;
-			}
+			}*/
 		}
 
 	}

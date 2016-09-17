@@ -22,5 +22,25 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	        Assert.AreEqual(750, guesser.currentGuess);
 	    }
 
+/*		[Test()]
+                public void ShouldSetCurrentMinToCurrentGuessOnButtonPressUp ()
+                {
+                    Guesser guesser = new Guesser ();
+
+                    guesser.Guess (1, 1000);
+
+                    Assert.AreEqual (500, guesser.currentMin);
+
+                }*/
+
+/*	    [Test()]
+                public void ShouldGuessAverageOfCurrentMaxAndCurrentGuessOnButtonPressUp()
+                {
+                    Guesser guesser = new Guesser();
+
+                    Assert.AreEqual(750, guesser.Guess(1, 1000));
+
+                }*/
+
 	}
 }

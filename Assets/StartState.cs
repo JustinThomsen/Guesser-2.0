@@ -17,7 +17,7 @@ namespace Thomsen.GuessingGame
 	    {
 	        guesser.currentMax = 1000;
 	        guesser.currentMin = 1;
-	        guesser.Guess(guesser.currentMin, guesser.currentMax, code);
+	        guesser.currentGuess = guesser.Guess(guesser.currentMin, guesser.currentMax);
 	        return new WaitingForInput();
 	    }
 	}

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Thomsen.GuessingGame
@@ -12,7 +13,7 @@ namespace Thomsen.GuessingGame
 
 	    public IGameState handleInput(Guesser guesser, KeyCode code)
 	    {
-	        guesser.Guess(guesser.currentMin, guesser.currentGuess, KeyCode.DownArrow);
+	        guesser.Guess(guesser.currentMin, guesser.currentGuess);
 	        return new WaitingForInput();
 	    }
 	}

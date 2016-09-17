@@ -13,49 +13,19 @@ namespace Thomsen.GuessingGame.Assets.Editor
 		{
 			Guesser guesser = new Guesser ();
 
-			Assert.AreEqual (500, guesser.Guess (1, 1000, KeyCode.A));
+			Assert.AreEqual (500, guesser.Guess (1, 1000));
 
 		}
 
-		[Test()]
-		public void ShouldGuessAverageOfCurrentMaxAndCurrentGuessOnButtonPressUp ()
-		{
-			Guesser guesser = new Guesser ();
+	    [Test()]
+	    public void ShouldGuess750OnHigherGuessWhenCurrentGuessIs500AndMaxIs1000()
+	    {
+	        Guesser guesser = new Guesser();
 
-			Assert.AreEqual (750, guesser.Guess (1, 1000, KeyCode.UpArrow));
+	        Assert.AreEqual(750, guesser.Guess(500, 1000));
 
-		}
-
-		[Test()]
-		public void ShouldSetCurrentMinToCurrentGuessOnButtonPressUp ()
-		{
-			Guesser guesser = new Guesser ();
-
-		    guesser.Guess (1, 1000, KeyCode.UpArrow);
-
-			Assert.AreEqual (500, guesser.currentMin);
-			
-		}
-
-		[Test()]
-		public void ShouldGuessAverageOfCurrentMinAndCurrentGuessOnButtonPressDown ()
-		{
-			Guesser guesser = new Guesser ();
-
-			Assert.AreEqual (250, guesser.Guess (1, 1000, KeyCode.DownArrow));
-
-		}
-
-		[Test()]
-		public void ShouldSetNewMaxEqualToCurrentGuessAfterButtonPressDown ()
-		{
-			Guesser guesser = new Guesser ();
-
-			guesser.Guess (1, 1000, KeyCode.DownArrow);
-
-			Assert.AreEqual (500, guesser.currentMax);
+	    }
 
 
-		}
 	}
 }
