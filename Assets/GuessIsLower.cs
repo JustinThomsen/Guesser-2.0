@@ -1,11 +1,9 @@
-using System;
 using UnityEngine;
 
 namespace Thomsen.GuessingGame
 {
 	public class GuessIsLower : IGameState
 	{
-
 	    public string printOptions(Guesser guesser)
 	    {
 	        return "Guessing Lower";

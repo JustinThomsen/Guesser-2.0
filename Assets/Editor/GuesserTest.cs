@@ -1,6 +1,4 @@
 using NUnit.Framework;
-using Thomsen.GuessingGame;
-using UnityEngine;
 
 namespace Thomsen.GuessingGame.Assets.Editor
 

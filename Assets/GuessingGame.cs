@@ -13,13 +13,11 @@ namespace Thomsen.GuessingGame
     }
 
     public class GuessingGame : MonoBehaviour {
-
         public Text text;
         public Guesser guesser = new Guesser ();
         private IGameState currentState;
 	    public Winning winning = new Winning ();
         public KeyCode code;
-//        private KeyCode emptyCode;
 
         void Start ()
         {
@@ -33,19 +31,15 @@ namespace Thomsen.GuessingGame
             currentState = currentState.handleInput(guesser, code);
             print(currentState.printOptions(guesser));
             print(code);
-            //print(guesser.currentGuess);
 
             if (Input.GetKeyDown("up"))
             {
                 code = KeyCode.UpArrow;
-//                guesser.Guess(guesser.currentGuess, guesser.currentMax, KeyCode.UpArrow);
                 print(guesser.currentGuess);
-                //print (guesser.currentGuess);
             }
             else if (Input.GetKeyDown("down"))
             {
                 code = KeyCode.DownArrow;
-//                guesser.Guess(guesser.currentMin, guesser.currentGuess, KeyCode.DownArrow);
             }
             else if (Input.GetKeyDown("return") || Input.GetKeyDown("enter"))
             {

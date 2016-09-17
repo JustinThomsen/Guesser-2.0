@@ -4,7 +4,6 @@ namespace Thomsen.GuessingGame
 {
 	public class GuessIsHigher : IGameState
 	{
-
 	    public string printOptions(Guesser guesser)
 	    {
 	        return "Guessing Higher";
