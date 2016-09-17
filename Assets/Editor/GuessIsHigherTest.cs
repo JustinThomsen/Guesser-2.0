@@ -16,7 +16,7 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	        guesser.currentGuess = 500;
 	        guesser.currentMax = 1000;
 
-	        guess.handleInput(guesser, KeyCode.UpArrow);
+	        guess.HandleInput(guesser, KeyCode.UpArrow);
 
 	        Assert.AreEqual(750, guesser.currentGuess);
 	    }

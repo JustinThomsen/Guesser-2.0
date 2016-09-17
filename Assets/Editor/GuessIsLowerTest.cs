@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using Thomsen.GuessingGame;
 using UnityEngine;
 
 namespace Thomsen.GuessingGame.Assets.Editor
@@ -17,7 +16,7 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	        guesser.currentGuess = 500;
 	        guesser.currentMax = 1000;
 
-	        guess.handleInput(guesser, KeyCode.DownArrow);
+	        guess.HandleInput(guesser, KeyCode.DownArrow);
 
 	        Assert.AreEqual(250, guesser.currentGuess);
 

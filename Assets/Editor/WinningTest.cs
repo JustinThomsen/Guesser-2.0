@@ -14,7 +14,7 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	        Winning winning = new Winning();
 	        Guesser guesser = new Guesser();
 
-	        Assert.IsInstanceOf<StartState>(winning.handleInput(guesser, KeyCode.Return));
+	        Assert.IsInstanceOf<StartState>(winning.HandleInput(guesser, KeyCode.Return));
 	    }
 	}
 }

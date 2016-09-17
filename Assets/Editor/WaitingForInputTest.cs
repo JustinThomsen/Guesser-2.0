@@ -14,7 +14,7 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	        GuessIsHigher guess = new GuessIsHigher();
 	        Guesser guesser = new Guesser();
 
-	        Assert.IsInstanceOf<WaitingForInput>(guess.handleInput(guesser, KeyCode.UpArrow));
+	        Assert.IsInstanceOf<WaitingForInput>(guess.HandleInput(guesser, KeyCode.UpArrow));
 	    }
 
 	    [Test()]
@@ -23,7 +23,7 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	        WaitingForInput guess = new WaitingForInput();
 	        Guesser guesser = new Guesser();
 
-	        Assert.IsInstanceOf<GuessIsHigher>(guess.handleInput(guesser, KeyCode.UpArrow));
+	        Assert.IsInstanceOf<GuessIsHigher>(guess.HandleInput(guesser, KeyCode.UpArrow));
 	    }
 
 	    [Test()]
@@ -32,7 +32,7 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	        WaitingForInput guess = new WaitingForInput();
 	        Guesser guesser = new Guesser();
 
-	        Assert.IsInstanceOf<Winning>(guess.handleInput(guesser, KeyCode.Return));
+	        Assert.IsInstanceOf<Winning>(guess.HandleInput(guesser, KeyCode.Return));
 	    }
 
 	}

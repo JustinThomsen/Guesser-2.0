@@ -8,12 +8,11 @@ namespace Thomsen.GuessingGame
     {
         //not all States need to print stuff - but if I dont have this - I can't use blah.printOptions
         //because not all states would have it
-        String printOptions(Guesser guesser);
-        IGameState handleInput(Guesser guesser, KeyCode code);
+        String PrintOptions(Guesser guesser);
+        IGameState HandleInput(Guesser guesser, KeyCode code);
     }
 
     public class GuessingGame : MonoBehaviour {
-        public Text text;
         public Guesser guesser = new Guesser ();
         private IGameState currentState;
 	    public Winning winning = new Winning ();
@@ -23,19 +22,17 @@ namespace Thomsen.GuessingGame
         {
             StartGame();
             currentState = new StartState();
-            print(currentState.printOptions(guesser));
+            currentState.PrintOptions(guesser);
         }
 
         void Update ()
         {
-            currentState = currentState.handleInput(guesser, code);
-            print(currentState.printOptions(guesser));
-            print(code);
+            currentState = currentState.HandleInput(guesser, code);
+            currentState.PrintOptions(guesser);
 
             if (Input.GetKeyDown("up"))
             {
                 code = KeyCode.UpArrow;
-                print(guesser.currentGuess);
             }
             else if (Input.GetKeyDown("down"))
             {
@@ -48,14 +45,12 @@ namespace Thomsen.GuessingGame
             else code = KeyCode.None;
         }
 
-
         public void StartGame ()
         {
             guesser.currentMax = 1000;
             guesser.currentMin = 1;
             guesser.Guess(guesser.currentMin, guesser.currentMax);
         }
-
 
     //	void RightAnswer() {
     //		print ("Your number is " + guesser.currentGuess + "\n");

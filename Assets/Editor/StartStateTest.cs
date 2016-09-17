@@ -13,7 +13,7 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	        StartState startState = new StartState();
 	        Guesser guesser = new Guesser();
 
-	        Assert.IsInstanceOf<WaitingForInput>(startState.handleInput(guesser, KeyCode.A));
+	        Assert.IsInstanceOf<WaitingForInput>(startState.HandleInput(guesser, KeyCode.A));
 	    }
 
 	    [Test()]
@@ -22,7 +22,7 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	        StartState startState = new StartState();
 	        Guesser guesser = new Guesser();
 
-	        startState.handleInput(guesser, KeyCode.A);
+	        startState.HandleInput(guesser, KeyCode.A);
 
 	        Assert.AreEqual(1000, guesser.currentMax);
 	    }
@@ -34,7 +34,7 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	        Guesser guesser = new Guesser();
 	        guesser.currentGuess = 25;
 
-	        startState.handleInput(guesser, KeyCode.A);
+	        startState.HandleInput(guesser, KeyCode.A);
 
 	        Assert.AreEqual(500, guesser.currentGuess);
 	    }
@@ -46,7 +46,7 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	        Guesser guesser = new Guesser();
 	        guesser.currentMin = 10;
 
-	        startState.handleInput(guesser, KeyCode.A);
+	        startState.HandleInput(guesser, KeyCode.A);
 
 	        Assert.AreEqual(1, guesser.currentMin);
 	    }

@@ -4,16 +4,17 @@ namespace Thomsen.GuessingGame
 {
 	public class StartState : IGameState
 	{
-	    public string printOptions(Guesser guesser)
+	    public string PrintOptions(Guesser guesser)
 	    {
-	        return ("================================================\n" +
-	        "Welcome to Guesser 2.0\n" +
-	        "Pick a number in your head and punch a baby seal.\n" +
-	        "Max value is " + guesser.currentMax + "\n" +
-	        "Min value is " + guesser.currentMin + "\n");
+	        GuessingGame.print("================================================\n" +
+	        "Welcome to Guesser 2.0 \n");
+	        GuessingGame.print("Pick a number in your head and punch a baby seal.\n" +
+	                           "Max value is " + guesser.currentMax + "\n");
+	        GuessingGame.print("Min value is " + guesser.currentMin + "\n");
+	        return "";
 	    }
 
-	    public IGameState handleInput(Guesser guesser, KeyCode code)
+	    public IGameState HandleInput(Guesser guesser, KeyCode code)
 	    {
 	        guesser.currentMax = 1000;
 	        guesser.currentMin = 1;

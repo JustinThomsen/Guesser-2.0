@@ -4,12 +4,13 @@ namespace Thomsen.GuessingGame
 {
 	public class GuessIsHigher : IGameState
 	{
-	    public string printOptions(Guesser guesser)
+	    public string PrintOptions(Guesser guesser)
 	    {
-	        return "Guessing Higher";
+	        GuessingGame.print("Guessing Higher");
+	        return "";
 	    }
 
-	    public IGameState handleInput(Guesser guesser, KeyCode code)
+	    public IGameState HandleInput(Guesser guesser, KeyCode code)
 	    {
 	        guesser.Guess(guesser.currentGuess, guesser.currentMax);
 	        return new WaitingForInput();
