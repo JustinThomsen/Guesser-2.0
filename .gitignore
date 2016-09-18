@@ -9,7 +9,7 @@ test-results/
 .idea/
 obj/
 packages/
-*.unity
+
 *.meta
 packages.config
 
