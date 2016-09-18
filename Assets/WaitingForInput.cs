@@ -1,3 +1,4 @@
+using System.Net.Mime;
 using UnityEngine;
 
 namespace Thomsen.GuessingGame
@@ -9,7 +10,7 @@ namespace Thomsen.GuessingGame
 	    {
 	        GuessingGame.print("Is the # higher or lower than " + guesser.currentGuess + "\n");
 	        GuessingGame.print("[UP] for higher; [DOWN] for lower; [RETURN] for equal\n");
-	        return "";
+	        return guesser.currentGuess.ToString();
 	    }
         //does it really need the guesser here? Again, some states do, but not this one. or maybe no states do?
 	    public IGameState HandleInput(Guesser guesser, KeyCode code)

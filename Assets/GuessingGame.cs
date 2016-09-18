@@ -17,6 +17,7 @@ namespace Thomsen.GuessingGame
         private IGameState currentState;
 	    public Winning winning = new Winning ();
         public KeyCode code;
+        public Text text;
 
         void Start ()
         {
@@ -29,6 +30,7 @@ namespace Thomsen.GuessingGame
         {
             currentState = currentState.HandleInput(guesser, code);
             currentState.PrintOptions(guesser);
+            text.text = currentState.PrintOptions(guesser);
 
             if (Input.GetKeyDown("up"))
             {
@@ -52,7 +54,22 @@ namespace Thomsen.GuessingGame
             guesser.Guess(guesser.currentMin, guesser.currentMax);
         }
 
-    //	void RightAnswer() {
+        public void GuessHigher()
+        {
+            code = KeyCode.UpArrow;
+        }
+
+        public void GuessLower()
+        {
+            code = KeyCode.DownArrow;
+        }
+
+        public void CorrectGuess()
+        {
+            code = KeyCode.Return;
+        }
+
+        //	void RightAnswer() {
     //		print ("Your number is " + guesser.currentGuess + "\n");
     //		//print (guess+ "g"+max+"max"+min+"min");
     //		Winning();
