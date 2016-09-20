@@ -8,7 +8,6 @@ namespace Thomsen.GuessingGame
 
 	    public string PrintOptions(Guesser guesser)
 	    {
-	        GuessingGame.print("Your number is " + guesser.currentGuess + ".");
 	        return "";
 	    }
 

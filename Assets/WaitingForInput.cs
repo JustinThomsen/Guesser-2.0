@@ -1,4 +1,3 @@
-using System.Net.Mime;
 using UnityEngine;
 
 namespace Thomsen.GuessingGame
@@ -22,7 +21,7 @@ namespace Thomsen.GuessingGame
 	            case KeyCode.DownArrow:
 	                return new GuessIsLower();
 	            case KeyCode.Return:
-	                return new Winning();
+	                return new Losing();
 	            default:
 	                return new WaitingForInput();
 	        }

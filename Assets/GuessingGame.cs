@@ -18,6 +18,7 @@ namespace Thomsen.GuessingGame
 	    public Winning winning = new Winning ();
         public KeyCode code;
         public Text text;
+        public int guessesToWin;
 
         void Start ()
         {
@@ -31,6 +32,11 @@ namespace Thomsen.GuessingGame
             currentState = currentState.HandleInput(guesser, code);
             currentState.PrintOptions(guesser);
             text.text = currentState.PrintOptions(guesser);
+
+            if (guesser.count >= guessesToWin)
+            {
+                WinGame();
+            }
 
             if (Input.GetKeyDown("up"))
             {
@@ -51,12 +57,18 @@ namespace Thomsen.GuessingGame
         {
             guesser.currentMax = 1000;
             guesser.currentMin = 1;
+            guesser.count = 0;
             guesser.Guess(guesser.currentMin, guesser.currentMax);
         }
 
         public void GuessHigher()
         {
             code = KeyCode.UpArrow;
+        }
+
+        public void WinGame()
+        {
+            Application.LoadLevel("Win");
         }
 
         public void GuessLower()

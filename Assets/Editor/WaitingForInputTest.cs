@@ -27,12 +27,12 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	    }
 
 	    [Test()]
-	    public void ShouldMoveToWinningStateAfterCorrectGuess()
+	    public void ShouldMoveToLosingStateAfterCorrectGuess()
 	    {
 	        WaitingForInput guess = new WaitingForInput();
 	        Guesser guesser = new Guesser();
 
-	        Assert.IsInstanceOf<Winning>(guess.HandleInput(guesser, KeyCode.Return));
+	        Assert.IsInstanceOf<Losing>(guess.HandleInput(guesser, KeyCode.Return));
 	    }
 
 	}
