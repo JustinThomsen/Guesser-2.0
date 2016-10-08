@@ -109,6 +109,5 @@ namespace Thomsen.GuessingGame
         // Update is called once per frame
         //liars 50 = guess - but pick up or down on the first guess
         //
-	
-    }
+	}
 }

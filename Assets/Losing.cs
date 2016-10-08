@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 namespace Thomsen.GuessingGame
 {
 	public class Losing : IGameState

@@ -1,25 +1,39 @@
 using NUnit.Framework;
 using UnityEngine;
+using NSubstitute;
+
+
 
 namespace Thomsen.GuessingGame.Assets.Editor
 
 {
-	[TestFixture()]
+	[TestFixture]
 	public class GuessIsHigherTest
 	{
 	    [Test()]
 	    public void ShouldPromptWithHigherGuessWhenGuessIsHigher()
 	    {
 	        GuessIsHigher guess = new GuessIsHigher();
-	        Guesser guesser = new Guesser();
-	        guesser.currentMin = 1;
-	        guesser.currentGuess = 500;
-	        guesser.currentMax = 1000;
-//This test has to do 2 things - it has to validate that the prompting occured via moving to waiting for input
-//and validate that the guess was higher - at least I think it does but I dont like it.
-	        Assert.IsInstanceOf<WaitingForInput>(guess.HandleInput(guesser, KeyCode.UpArrow));
 
-	        Assert.AreEqual(750, guesser.currentGuess);
+            //This is my table I will splash the pot Whenever. The Fuck. I want.
+	        //To run the verify, we need to have an interface. So Guesser needs an interface.
+	        //But how do we set state on the Guesser object if it's an interface?
+	        //Maybe we need another object that we pass into the Guesser that represents the current parameters? (and we mock that)
+
+	        //Marking the Guess() method as 'virtual' solved the need for us to use an interface.  Apparently in C#
+	        //the new 'hotness' is that everything is an interface.
+	        //Uncle Bob says that the L in SOLID would be violated by this because it violates Liskov sub principle.
+	        //my tests pass for the right reasons. Im leaving it for now.
+
+	        var mockGuesser = Substitute.For<Guesser>();
+	        mockGuesser.currentMin = 1;
+	        mockGuesser.currentGuess = 500;
+	        mockGuesser.currentMax = 1000;
+
+	        IGameState result = guess.HandleInput(mockGuesser, KeyCode.UpArrow);
+
+	        Assert.IsInstanceOf<WaitingForInput>(result);
+	        mockGuesser.Received().Guess(500,1000);
 	    }
 
 		[Test()]
@@ -33,7 +47,6 @@ namespace Thomsen.GuessingGame.Assets.Editor
             higherGuess.HandleInput(guesser, KeyCode.UpArrow);
 
             Assert.AreEqual (500, guesser.currentMin);
-
         }
 
 	    [Test()]
@@ -49,6 +62,5 @@ namespace Thomsen.GuessingGame.Assets.Editor
 
             Assert.AreEqual(750, guesser.currentGuess);
         }
-
 	}
 }
