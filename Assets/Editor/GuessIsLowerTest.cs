@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using UnityEngine;
+using NSubstitute;
 
 namespace Thomsen.GuessingGame.Assets.Editor
 
@@ -10,44 +11,16 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	    [Test()]
 	    public void ShouldPromptWithLowerGuessWhenGuessIsLower()
 	    {
-//Same duplication here
 	        GuessIsLower guess = new GuessIsLower();
-	        Guesser guesser = new Guesser();
-	        guesser.currentMin = 1;
-	        guesser.currentGuess = 500;
+	        var mockGuesser = Substitute.For<Guesser>();
+	        mockGuesser.currentMin = 1;
+	        mockGuesser.currentGuess = 500;
+	        mockGuesser.currentMax = 1000;
 
-	        Assert.IsInstanceOf<WaitingForInput>(guess.HandleInput(guesser, KeyCode.DownArrow));
+	        IGameState result = guess.HandleInput(mockGuesser, KeyCode.UpArrow);
 
-	        Assert.AreEqual(250, guesser.currentGuess);
-
-	    }
-
-	    [Test()]
-	    public void ShouldGuessAverageOfCurrentMinAndCurrentGuessOnButtonPressDown()
-	    {
-	        GuessIsLower guess = new GuessIsLower();
-	        Guesser guesser = new Guesser();
-	        guesser.currentMin = 1;
-	        guesser.currentGuess = 500;
-	        guesser.currentMax = 1000;
-
-	        guess.HandleInput(guesser, KeyCode.DownArrow);
-
-	        Assert.AreEqual(250, guesser.currentGuess);
-	    }
-
-	    [Test()]
-	    public void ShouldSetNewMaxEqualToCurrentGuessAfterButtonPressDown()
-	    {
-	        GuessIsLower guess = new GuessIsLower();
-	        Guesser guesser = new Guesser();
-	        guesser.currentMin = 1;
-	        guesser.currentGuess = 500;
-	        guesser.currentMax = 1000;
-
-	        guess.HandleInput(guesser, KeyCode.DownArrow);
-
-	        Assert.AreEqual(500, guesser.currentMax);
+	        Assert.IsInstanceOf<WaitingForInput>(result);
+	        mockGuesser.Received().Guess(1,500);
 	    }
 	}
 }

@@ -1,3 +1,5 @@
+using System;
+using NSubstitute;
 using NUnit.Framework;
 using UnityEngine;
 
@@ -11,9 +13,14 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	    public void ShouldMoveToWaitingForInputAfterStartForAnyKeypress()
 	    {
 	        StartState startState = new StartState();
-	        Guesser guesser = new Guesser();
+	        var mockGuesser = Substitute.For<Guesser>();
+	        mockGuesser.currentMin = 1;
+	        mockGuesser.currentGuess = 500;
+	        mockGuesser.currentMax = 1000;
 
-	        Assert.IsInstanceOf<WaitingForInput>(startState.HandleInput(guesser, KeyCode.A));
+	        IGameState result = startState.HandleInput(mockGuesser, KeyCode.UpArrow);
+
+	        Assert.IsInstanceOf<WaitingForInput>(result);
 	    }
 
 	    [Test()]
@@ -28,7 +35,7 @@ namespace Thomsen.GuessingGame.Assets.Editor
 	    }
 
 	    [Test()]
-	    public void ShouldSetCurrentGuessTo500AfterStart()
+	    public void ShouldSetCurrentGuessBetweenMinAndMaxAfterStart()
 	    {
 	        StartState startState = new StartState();
 	        Guesser guesser = new Guesser();
@@ -36,7 +43,9 @@ namespace Thomsen.GuessingGame.Assets.Editor
 
 	        startState.HandleInput(guesser, KeyCode.A);
 
-	        Assert.AreEqual(500, guesser.currentGuess);
+	        Assert.GreaterOrEqual(guesser.currentGuess, guesser.currentMin);
+	        Assert.LessOrEqual(guesser.currentGuess, guesser.currentMax);
+	        Console.Write(guesser.currentGuess);
 	    }
 
 	    [Test()]
